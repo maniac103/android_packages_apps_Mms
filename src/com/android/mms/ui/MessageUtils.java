@@ -579,7 +579,7 @@ public class MessageUtils {
     /**
      * The quality parameter which is used to compress JPEG images.
      */
-    public static final int IMAGE_COMPRESSION_QUALITY = 80;
+    public static final int IMAGE_COMPRESSION_QUALITY = 95;
     /**
      * The minimum quality parameter which is used to compress JPEG images.
      */
