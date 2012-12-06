@@ -220,10 +220,11 @@ public class UriImage {
         int outWidth = mWidth;
         int outHeight = mHeight;
 
-        float scaleFactor = 1.F;
-        while ((outWidth * scaleFactor > widthLimit) || (outHeight * scaleFactor > heightLimit)) {
-            scaleFactor *= .75F;
-        }
+        float scaleFactor = Math.min((float) widthLimit / (float) outWidth,
+                (float) heightLimit / (float) outHeight);
+
+        /* we only ever want to scale down if needed, never scale up */
+        scaleFactor = Math.min(scaleFactor, 1.F);
 
         if (Log.isLoggable(LogTag.APP, Log.VERBOSE)) {
             Log.v(TAG, "getResizedImageData: wlimit=" + widthLimit +
